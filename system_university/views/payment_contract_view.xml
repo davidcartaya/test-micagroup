@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Formulario de Pago -->
+        <record id="view_payment_form" model="ir.ui.view">
+            <field name="name">payment.contract.form</field>
+            <field name="model">payment.contract</field>
+            <field name="arch" type="xml">
+                <form string="Pago">
+                    <header>
+                        <button string="Cancelar pago" type="object" attrs="{'invisible': [('state', '=', 'cancelled')]}" name="action_cancel" class="btn-primary"/>
+                        <field name="state" widget="statusbar" statusbar_visible="confirm"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="payment_date" readonly="1"/>
+                            <field name="amount" readonly="1"/>
+                            <field name="contract_id" readonly="1"/>
+                        </group>
+                    </sheet>
+                   
+                </form>
+            </field>
+        </record>
+ 
+        <!-- Vista Lista de Pagos -->
+        <record id="view_payment_tree" model="ir.ui.view">
+            <field name="name">payment.contract.tree</field>
+            <field name="model">payment.contract</field>
+            <field name="arch" type="xml">
+                <tree string="Pagos" create="false">
+                    <field name="name"/>
+                    <field name="payment_date"/>
+                    <field name="state"/>
+                    <field name="contract_id"/>
+                    <field name="amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_payment_contract" model="ir.actions.act_window">
+            <field name="name">Pagos</field>
+            <field name="res_model">payment.contract</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    
+
+        <menuitem id="menu_payment_contract" name="Pagos"
+        parent="system_main_menu"
+        action="action_payment_contract"/>
+    </data>
+</odoo>

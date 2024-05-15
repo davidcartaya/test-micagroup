@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_matter_form" model="ir.ui.view">
+        <field name="name">matter.matter.form</field>
+        <field name="model">matter.matter</field>
+        <field name="arch" type="xml">
+            <form string="Materia">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="code"/>
+                        <field name="career_id" readonly="1"/>
+                        <field name="teacher_id" />
+                        <field name="matter_cost"/>
+                        <field name="matter_cost_usd"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_matter_tree" model="ir.ui.view">
+        <field name="name">matter.matter.tree</field>
+        <field name="model">matter.matter</field>
+        <field name="arch" type="xml">
+            <tree string="Materias">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="career_id"/>
+                <field name="teacher_id" />
+                <field name="matter_cost"/>
+                <field name="matter_cost_usd"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_matter" model="ir.actions.act_window">
+        <field name="name">Materias</field>
+        <field name="res_model">matter.matter</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_matter" name="Materias"
+              parent="system_main_menu"
+              action="action_matter"/>
+</odoo>

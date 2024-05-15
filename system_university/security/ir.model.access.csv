@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_matter_matter,access.matter.matter,model_matter_matter,,1,1,1,1
+access_contract_student,access.contract.student,model_contract_student,,1,1,1,1
+access_contract_student_line,access.contract.student.line,model_contract_student_line,,1,1,1,1
+access_teacher_teacher,access.teacher.teacher,model_teacher_teacher,,1,1,1,1
+access_payment_contract,access.payment.contract,model_payment_contract,,1,1,1,1
+access_student_student,access.student.student,model_student_student,,1,1,1,1
+access_custom_currency,access.custom.currency,model_custom_currency,,1,1,1,1
+access_pay_contract_wizard,access.pay.contract.wizard,model_pay_contract_wizard,,1,1,1,1
+access_career_career,access.career.career,model_career_career,,1,1,1,1
+
+
+
+
+
+
+

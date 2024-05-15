@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_pay_contract_wizard_form" model="ir.ui.view">
+            <field name="name">pay.contract.wizard.form</field>
+            <field name="model">pay.contract.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="amount" readonly="1"/>
+                        <field name="contract_id" invisible="1"/>
+                        <field name="amount_pay"/>
+                        <field name="amount_pay_usd"/>
+                    </group>
+                    <footer>
+                        <button string="Pagar" type="object" class="btn-primary"
+                            name="pay_contract"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"
+                            data-hotkey="z" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_open_pay_contract_wizard" model="ir.actions.act_window">
+            <field name="name">Pagar contrato</field>
+            <field name="res_model">pay.contract.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="system_university.view_pay_contract_wizard_form" />
+            <field name="target">new</field>
+        </record>
+    </data>   
+</odoo>

@@ -1,0 +1,20 @@
+<odoo>
+    <template id="powerbi_dashboard_template" name="Power BI Dashboard">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Power BI Dashboard</h1>
+                <iframe t-att-src="powerbi_url" width="800" height="600"></iframe>
+            </div>
+        </t>
+    </template>
+
+    
+    <record id="action_powerbi_dashboard" model="ir.actions.act_url">
+        <field name="name">Power BI Dashboard</field>
+        <field name="type">ir.actions.act_url</field>
+        <field name="url">/powerbi/dashboard</field>
+        <field name="target">self</field>
+    </record>
+
+    <menuitem id="menu_dashc" name="dash" parent="menu_dash" action="action_powerbi_dashboard" sequence="30"/>
+</odoo>

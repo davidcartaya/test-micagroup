@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Cargar moneda Bolivares (BS) -->
+        <record id="currency_bs" model="custom.currency">
+            <field name="name">Bolivares</field>
+            <field name="code">BS</field>
+            <field name="rate">10</field>
+            <field name="symbol">.BS</field>
+        </record>
+
+        <!-- Cargar moneda Dólares (USD) -->
+        <record id="currency_usd" model="custom.currency">
+            <field name="name">Dólares</field>
+            <field name="code">USD</field>
+            <field name="rate">39</field>
+            <field name="symbol">$</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="system_main_menu" name="Sistema Administrativo"
+        web_icon="system_university,static/description/logo-university.jpg"
+        sequence="10"/>
+
+    <menuitem id="menu_currency_main" name="Monedas"
+        web_icon="system_university,static/description/moneda.jpg"
+        sequence="20"/>
+
+    <menuitem id="menu_dash" name="Dashboard"
+        web_icon="system_university,static/description/Power-BI-Logo.png"
+        sequence="30"/>
+</odoo>

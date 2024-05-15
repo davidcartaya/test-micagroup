@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_currency_form" model="ir.ui.view">
+            <field name="name">custom.currency.form</field>
+            <field name="model">custom.currency</field>
+            <field name="arch" type="xml">
+                <form string="Moneda">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="symbol"/>
+                            <field name="rate"/>
+                        </group>
+                    </sheet>
+                    
+                </form>
+            </field>
+        </record>
+
+        <record id="view_currency_tree" model="ir.ui.view">
+            <field name="name">custom.currency.tree</field>
+            <field name="model">custom.currency</field>
+            <field name="arch" type="xml">
+                <tree string="Monedas">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="symbol"/>
+                    <field name="rate"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_currency" model="ir.actions.act_window">
+            <field name="name">Monedas</field>
+            <field name="res_model">custom.currency</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_currency" name="Monedas" parent="menu_currency_main"
+                  action="action_currency" sequence="20"/>
+    </data>
+</odoo>

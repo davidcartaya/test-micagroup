@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_career_form" model="ir.ui.view">
+        <field name="name">career.career.form</field>
+        <field name="model">career.career</field>
+        <field name="arch" type="xml">
+            <form string="Carrera">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="code"/>
+                        <field name="matter_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_career_tree" model="ir.ui.view">
+        <field name="name">career.career.tree</field>
+        <field name="model">career.career</field>
+        <field name="arch" type="xml">
+            <tree string="Carreras">
+                <field name="name" required="1"/>
+                <field name="code"/>
+                <field name="matter_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_career" model="ir.actions.act_window">
+        <field name="name">Carreras</field>
+        <field name="res_model">career.career</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_career" name="Carreras"
+              parent="system_main_menu"
+              action="action_career"/>
+</odoo>

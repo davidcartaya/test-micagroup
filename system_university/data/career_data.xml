@@ -1,0 +1,32 @@
+<!-- data_career_career.xml -->
+<odoo>
+    <record id="career_career_1" model="career.career">
+        <field name="name">Ingeniería</field>
+        <field name="code">ING</field>
+        <field name="matter_ids" eval="[(6, 0, [ref('matter_matter_1'), ref('matter_matter_2'), ref('matter_matter_3')])]"/>
+    </record>
+
+    <record id="career_career_2" model="career.career">
+        <field name="name">Ciencias</field>
+        <field name="code">CIE</field>
+        <field name="matter_ids" eval="[(6, 0, [ref('matter_matter_2'), ref('matter_matter_3'), ref('matter_matter_4')])]"/>
+    </record>
+
+    <record id="career_career_3" model="career.career">
+        <field name="name">Humanidades</field>
+        <field name="code">HUM</field>
+        <field name="matter_ids" eval="[(6, 0, [ref('matter_matter_4'), ref('matter_matter_5')])]"/>
+    </record>
+
+    <record id="career_career_4" model="career.career">
+        <field name="name">Artes</field>
+        <field name="code">ART</field>
+        <field name="matter_ids" eval="[(6, 0, [ref('matter_matter_5'), ref('matter_matter_1')])]"/>
+    </record>
+
+    <record id="career_career_5" model="career.career">
+        <field name="name">Economía</field>
+        <field name="code">ECO</field>
+        <field name="matter_ids" eval="[(6, 0, [ref('matter_matter_1'), ref('matter_matter_2'), ref('matter_matter_4')])]"/>
+    </record>
+</odoo>

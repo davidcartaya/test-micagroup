@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_contract_form" model="ir.ui.view">
+        <field name="name">contract.student.form</field>
+        <field name="model">contract.student</field>
+        <field name="arch" type="xml">
+            <form string="Contrato">
+                <header>
+                    <button name="action_draft" string="Volver a borrador" attrs="{'invisible': [('state', 'in', ('draft', 'paid', 'paid_cancel'))]}" class="oe_highlight" type="object" data-hotkey="x"/>
+                    <button name="action_cancel" string="Cancelar contrato" attrs="{'invisible': [('state', '!=', 'paid')]}" class="oe_highlight" type="object" data-hotkey="y"/>
+                    <button name="action_confirm" string="Confirmar contrato" attrs="{'invisible': [('state', 'in', ('confirm', 'paid', 'cancel', 'paid_cancel'))]}" class="oe_highlight" type="object" data-hotkey="v"/>
+                    <button name="%(action_open_pay_contract_wizard)d" attrs="{'invisible': [('state', '!=', 'confirm')]}"  string="Pagar contrato" class="oe_highlight" type="action"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" attrs="{'invisible': [('name', '!=', True)]}" readonly="1" />
+                        <field name="student_id" attrs="{'readonly': [('state', '!=', 'draft')]}" required="1"/>
+                        <field name="career_student_id" readonly="1"/>
+                        <field name="payment_id" attrs="{'invisible': [('state', '=', 'draft')]}" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Lineas de contrato">
+                            <field name="contract_lines_ids" readonly="1">
+                                <tree>
+                                    <field name="matter_id"/>
+                                    <field name="teacher_id"/>
+                                    <field name="matter_cost"/>
+                                    <field name="matter_cost_usd"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group col="12">
+                        <group colspan="8"></group>
+                        <group colspan="4">
+                            <group>
+                                <field name="total_cost" force_save="1" readonly="1"/>
+                                <field name="total_cost_usd" force_save="1" readonly="1"/>
+                            </group>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_contract_tree" model="ir.ui.view">
+        <field name="name">contract.student.tree</field>
+        <field name="model">contract.student</field>
+        <field name="arch" type="xml">
+            <tree string="Contratos">
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="total_cost"/>
+                <field name="total_cost_usd"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_contract" model="ir.actions.act_window">
+        <field name="name">Contratos</field>
+        <field name="res_model">contract.student</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_contract" name="Contratos"
+              parent="system_main_menu"
+              action="action_contract"/>
+</odoo>

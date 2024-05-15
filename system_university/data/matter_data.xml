@@ -1,0 +1,37 @@
+<!-- data_matter_matter.xml -->
+<odoo>
+    <record id="matter_matter_1" model="matter.matter">
+        <field name="name">Matemáticas</field>
+        <field name="teacher_id" ref="teacher_1"/>
+        <field name="matter_cost">100</field>
+        <field name="code">MAT101</field>
+    </record>
+
+    <record id="matter_matter_2" model="matter.matter">
+        <field name="name">Física</field>
+        <field name="teacher_id" ref="teacher_2"/>
+        <field name="matter_cost">120</field>
+        <field name="code">FIS101</field>
+    </record>
+
+    <record id="matter_matter_3" model="matter.matter">
+        <field name="name">Química</field>
+        <field name="teacher_id" ref="teacher_3"/>
+        <field name="matter_cost">110</field>
+        <field name="code">QUI101</field>
+    </record>
+
+    <record id="matter_matter_4" model="matter.matter">
+        <field name="name">Biología</field>
+        <field name="teacher_id" ref="teacher_4"/>
+        <field name="matter_cost">115</field>
+        <field name="code">BIO101</field>
+    </record>
+
+    <record id="matter_matter_5" model="matter.matter">
+        <field name="name">Historia</field>
+        <field name="teacher_id" ref="teacher_5"/>
+        <field name="matter_cost">105</field>
+        <field name="code">HIS101</field>
+    </record>
+</odoo>

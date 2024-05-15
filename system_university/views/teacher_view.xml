@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_teacher_form" model="ir.ui.view">
+        <field name="name">edu.teacher.form</field>
+        <field name="model">teacher.teacher</field>
+        <field name="arch" type="xml">
+            <form string="Profesor">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="matter_id" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_teacher_tree" model="ir.ui.view">
+        <field name="name">teacher.teacher.tree</field>
+        <field name="model">teacher.teacher</field>
+        <field name="arch" type="xml">
+            <tree string="Profesores">
+                <field name="name"/>
+                <field name="matter_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_teacher" model="ir.actions.act_window">
+        <field name="name">Profesores</field>
+        <field name="res_model">teacher.teacher</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_teacher" name="Profesores"
+              parent="system_main_menu"
+              action="action_teacher"/>
+</odoo>
