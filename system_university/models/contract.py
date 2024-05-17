@@ -23,9 +23,22 @@ class ContractStudent(models.Model):
     def create(self, vals):
         if 'name' not in vals or vals['name'] == _("New") or vals['name'] == False:
             vals['name'] = self.env['ir.sequence'].next_by_code('contract.student')
+        
         contract = super(ContractStudent, self).create(vals)
+        
+        if contract.career_student_id:
+            new_lines = []
+            for matter in contract.career_student_id.matter_ids:
+                new_line = (0, 0, {
+                    'matter_id': matter.id,
+                    'contract_id': contract.id,
+                })
+                new_lines.append(new_line)
+            contract.contract_lines_ids = new_lines
+        
         if contract.student_id:
             contract.student_id.contract_ids |= contract
+        
         return contract
 
     @api.onchange('career_student_id')
