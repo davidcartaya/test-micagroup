@@ -9,7 +9,7 @@
                     <group>
                         <field name="amount" readonly="1"/>
                         <field name="contract_id" invisible="1"/>
-                        <field name="amount_pay"/>
+                        <field name="amount_pay" readonly="1"/>
                         <field name="amount_pay_usd"/>
                     </group>
                     <footer>
