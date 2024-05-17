@@ -41,6 +41,24 @@ class ContractStudent(models.Model):
         
         return contract
 
+    def write(self, vals):
+        res = super(ContractStudent, self).write(vals)
+        if 'student_id' in vals:
+            self._update_contract_lines()
+        return res
+
+    def _update_contract_lines(self):
+        self.ensure_one()
+        self.contract_lines_ids = [(5, 0, 0)]
+        new_lines = []
+        for matter in self.career_student_id.matter_ids:
+            new_line = (0, 0, {
+                'matter_id': matter.id,
+                'contract_id': self.id,
+            })
+            new_lines.append(new_line)
+        self.contract_lines_ids = new_lines
+    
     @api.onchange('career_student_id')
     def _onchange_lines(self):
         if self.career_student_id:
@@ -100,14 +118,3 @@ class ContractStudentLine(models.Model):
     teacher_id = fields.Many2one('teacher.teacher', related='matter_id.teacher_id', string='Profesor asignado', store=True, readonly=True)
     matter_cost = fields.Float('Costo', related='matter_id.matter_cost', store=True, readonly=True)
     matter_cost_usd = fields.Float('Costo USD', related='matter_id.matter_cost_usd', store=True, readonly=True)
-
-                
-    @api.constrains('matter_id', 'contract_id')
-    def _check_duplicate_matter(self):
-        for line in self:
-            if self.env['contract.student.line'].search_count([
-                ('id', '!=', line.id),
-                ('matter_id', '=', line.matter_id.id),
-                ('contract_id', '=', line.contract_id.id)
-            ]) > 0:
-                raise ValidationError(_("No puede haber materias duplicadas en el mismo contrato."))
