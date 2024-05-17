@@ -5,31 +5,31 @@
         <!-- Registro 1 -->
         <record id="teacher_1" model="teacher.teacher">
             <field name="name">Profesor Uno</field>
-            <field name="matter_id" ref="matter_matter_1"/>
+            <!-- <field name="matter_id" ref="matter_matter_1"/> -->
         </record>
 
         <!-- Registro 2 -->
         <record id="teacher_2" model="teacher.teacher">
             <field name="name">Profesor Dos</field>
-            <field name="matter_id" ref="matter_matter_2"/>
+            <!-- <field name="matter_id" ref="matter_matter_2"/> -->
         </record>
 
         <!-- Registro 3 -->
         <record id="teacher_3" model="teacher.teacher">
             <field name="name">Profesor Tres</field>
-            <field name="matter_id" ref="matter_matter_3"/>
+            <!-- <field name="matter_id" ref="matter_matter_3"/> -->
         </record>
 
         <!-- Registro 4 -->
         <record id="teacher_4" model="teacher.teacher">
             <field name="name">Profesor Cuatro</field>
-            <field name="matter_id" ref="matter_matter_4"/>
+            <!-- <field name="matter_id" ref="matter_matter_4"/> -->
         </record>
 
         <!-- Registro 5 -->
         <record id="teacher_5" model="teacher.teacher">
             <field name="name">Profesor Cinco</field>
-            <field name="matter_id" ref="matter_matter_5"/>
+            <!-- <field name="matter_id" ref="matter_matter_5"/> -->
         </record>
 
         

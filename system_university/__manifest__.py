@@ -14,12 +14,13 @@
         'data/sequence_contract.xml',
         #archivo para cargar las monedas
         'data/currency_data.xml',
+        #archivo para cargar los profesores
+        'data/teacher_data.xml',
         #archivo para cargar las materias
         'data/matter_data.xml',
         #archivo para cargar las carreras
         'data/career_data.xml',
-        #archivo para cargar los profesores
-        'data/teacher_data.xml',
+
         #archivo para cargar los estudiantes
         'data/student_data.xml',
 

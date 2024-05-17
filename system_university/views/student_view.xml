@@ -39,6 +39,7 @@
         <field name="arch" type="xml">
             <tree string="Estudiantes">
                 <field name="name"/>
+                <field name="career_id"/>
                 <field name="age"/>
                 <field name="gender"/>
                 <field name="phone"/>
