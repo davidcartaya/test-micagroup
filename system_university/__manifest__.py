@@ -5,7 +5,7 @@
     'summary': 'Gestión de materias y carreras',
     'description': 'Módulo para gestionar materias y carreras universitarias',    
     "author": "David Cartaya <david.cartaya2003@gmail.com>",
-    "depends": ['base', 'web'],
+    "depends": ['base', 'website'],
     "data": [
         # archivos de seguridad
         'security/ir.model.access.csv',

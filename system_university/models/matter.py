@@ -5,11 +5,12 @@ class MatterMatter(models.Model):
     _name = 'matter.matter'
 
     name = fields.Char('Nombre')
-    teacher_id = fields.Many2one('teacher.teacher', string='Profesor asignado')
+    teacher_id = fields.Many2one('teacher.teacher', string='Profesor asignado', domain="[('id', 'in', teacher_ids)]")
     matter_cost = fields.Float('Costo')
     matter_cost_usd = fields.Float('Costo USD', compute="_compute_matter_cost_usd")
     code = fields.Char('Código')
     career_id = fields.Many2one('career.career', string='Carrera')
+    teacher_ids = fields.Many2many('teacher.teacher', compute='_compute_teacher_ids', store=False)
 
     @api.onchange('teacher_id')
     def _onchange_teacher_id(self):
@@ -33,6 +34,16 @@ class MatterMatter(models.Model):
         if record.career_id:
             record.career_id.write({'matter_ids': [(4, record.id)]})
         return record
+
+    @api.model
+    def _get_teachers_without_matter(self):
+        assigned_teacher_ids = self.search([]).mapped('teacher_id.id')
+        return [('id', 'not in', assigned_teacher_ids)]
+
+    @api.depends('teacher_id')
+    def _compute_teacher_ids(self):
+        self.teacher_ids = self.env['teacher.teacher'].search([('matter_id', '=', False)])
+
 
     def write(self, vals):
         if 'teacher_id' in vals:

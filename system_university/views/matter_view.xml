@@ -11,6 +11,8 @@
                         <field name="code"/>
                         <field name="career_id" readonly="1"/>
                         <field name="teacher_id" />
+                        <field name="teacher_ids" invisible="1"/>
+
                         <field name="matter_cost"/>
                         <field name="matter_cost_usd"/>
                     </group>
